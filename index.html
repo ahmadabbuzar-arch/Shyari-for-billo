@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>🐾 Billu ❤️ Billo | Hinglish Pyaar Bhari Shayari 🐾</title>
+    <!-- Google Fonts: clean & playful -->
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Baloo+2:wght@400;600;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #fff3e6 0%, #ffe0f0 45%, #ffe6f0 100%);
+            font-family: 'Quicksand', 'Baloo 2', cursive, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* floating hearts & sparkles */
+        .floating-heart {
+            position: fixed;
+            font-size: 1.2rem;
+            opacity: 0.5;
+            pointer-events: none;
+            animation: floatUp 7s linear infinite;
+            z-index: 0;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0.6;
+            }
+            100% {
+                transform: translateY(-10vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* main card */
+        .greeting-card {
+            max-width: 1300px;
+            width: 100%;
+            background: rgba(255, 250, 240, 0.88);
+            backdrop-filter: blur(3px);
+            border-radius: 70px 70px 70px 50px;
+            box-shadow: 0 25px 45px rgba(255, 105, 160, 0.25), 0 10px 20px rgba(0,0,0,0.08);
+            padding: 30px 20px 40px;
+            transition: all 0.3s ease;
+            border: 2px solid #ffbfcf;
+            z-index: 2;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2.6rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #fc6e8f, #ffb48a, #ffc3a0);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        .sub {
+            text-align: center;
+            font-size: 1rem;
+            font-weight: 600;
+            background: #fff0e6e6;
+            display: inline-block;
+            width: auto;
+            margin: 0 auto 30px;
+            padding: 8px 25px;
+            border-radius: 50px;
+            color: #b35d7a;
+            backdrop-filter: blur(4px);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        /* cats row */
+        .cats-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+            margin: 20px 0 35px;
+        }
+
+        .cat-card {
+            flex: 1;
+            min-width: 270px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.2s;
+        }
+
+        .cat-card:hover {
+            transform: translateY(-6px);
+        }
+
+        /* speech bubble */
+        .bubble {
+            max-width: 300px;
+            background: #fffef9;
+            backdrop-filter: blur(10px);
+            border-radius: 36px;
+            padding: 18px 20px;
+            margin-bottom: 20px;
+            position: relative;
+            box-shadow: 0 15px 25px rgba(245, 145, 165, 0.25);
+            border: 2px solid #ffddbb;
+            min-height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-size: 1rem;
+            font-weight: 500;
+            color: #3a2a2a;
+            word-break: break-word;
+            font-family: 'Baloo 2', 'Quicksand', cursive;
+            line-height: 1.45;
+        }
+
+        .cat-card:first-child .bubble::before {
+            content: "🐾";
+            position: absolute;
+            bottom: -18px;
+            left: 20px;
+            font-size: 22px;
+            opacity: 0.8;
+        }
+
+        .cat-card:last-child .bubble::after {
+            content: "🌸";
+            position: absolute;
+            bottom: -18px;
+            right: 20px;
+            font-size: 22px;
+            opacity: 0.8;
+        }
+
+        /* cat avatars */
+        .cat-avatar {
+            width: 150px;
+            height: 150px;
+            background: #ffe1ca;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 8px 0;
+            box-shadow: 0 12px 22px rgba(0, 0, 0, 0.1);
+            border: 4px solid #fff1e0;
+            cursor: pointer;
+            animation: bounceCat 2.5s infinite ease-in-out;
+        }
+
+        @keyframes bounceCat {
+            0%, 100% { transform: translateY(0px) rotate(0deg);}
+            50% { transform: translateY(-6px) rotate(1deg);}
+        }
+
+        .cat-avatar img {
+            width: 115px;
+            height: 115px;
+            object-fit: contain;
+            filter: drop-shadow(2px 4px 8px rgba(0,0,0,0.15));
+        }
+
+        .cat-name {
+            font-size: 2rem;
+            font-weight: 800;
+            background: linear-gradient(145deg, #ff7e8f, #ffaa77);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-top: 8px;
+        }
+
+        /* button */
+        .btn-shayari {
+            background: linear-gradient(110deg, #ff9aa5, #ffcdb0, #ffbfaa);
+            border: none;
+            padding: 14px 34px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            border-radius: 60px;
+            color: #481f2c;
+            cursor: pointer;
+            box-shadow: 0 10px 18px #f7abb2;
+            transition: 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin: 15px auto 12px;
+            font-family: 'Baloo 2', cursive;
+            width: fit-content;
+        }
+
+        .btn-shayari i {
+            font-size: 1.5rem;
+            animation: heartBeat 1.4s infinite;
+        }
+
+        @keyframes heartBeat {
+            0%, 100% { transform: scale(1);}
+            50% { transform: scale(1.18);}
+        }
+
+        .btn-shayari:hover {
+            transform: scale(1.02);
+            box-shadow: 0 12px 24px #ff9aa8;
+        }
+
+        .btn-shayari:disabled {
+            opacity: 0.65;
+            transform: scale(0.98);
+            cursor: wait;
+        }
+
+        /* loading dots */
+        .typing {
+            display: inline-flex;
+            gap: 6px;
+        }
+        .typing span {
+            width: 8px;
+            height: 8px;
+            background: #f05e7c;
+            border-radius: 50%;
+            animation: blink 1.2s infinite;
+        }
+        .typing span:nth-child(2){ animation-delay: 0.2s; }
+        .typing span:nth-child(3){ animation-delay: 0.4s; }
+        @keyframes blink {
+            0%, 100% { opacity: 0.3; transform: translateY(0);}
+            50% { opacity: 1; transform: translateY(-3px);}
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 35px;
+            font-size: 0.8rem;
+            color: #c08170;
+            font-weight: 500;
+        }
+
+        @media (max-width: 780px) {
+            .cats-row { flex-direction: column; align-items: center; gap: 30px;}
+            .bubble { max-width: 260px; }
+            .btn-shayari { font-size: 1.1rem; padding: 12px 24px;}
+            h1 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="greeting-card">
+    <h1>🐱 बिल्लू ❤️ बिल्लो 🐱</h1>
+    <div style="text-align: center;"><div class="sub">✨ Hinglish Mein Pyaari Shayari ✨ Full Good Vibes ✨</div></div>
+
+    <div class="cats-row">
+        <!-- Billu (Male Cat) -->
+        <div class="cat-card" id="billuCard">
+            <div class="bubble" id="billuBubble">
+                💖 Hey main Billu, Billo ke liye Hinglish me shayari launga 💖
+            </div>
+            <div class="cat-avatar">
+                <img src="https://cdn-icons-png.flaticon.com/512/1998/1998672.png" alt="Billu cat" onerror="this.src='https://cdn-icons-png.flaticon.com/512/616/616408.png'">
+            </div>
+            <div class="cat-name">बिल्लू 🧡</div>
+        </div>
+
+        <!-- Billo (Female Cat) -->
+        <div class="cat-card" id="billoCard">
+            <div class="bubble" id="billoBubble">
+                🌸 Billo sunne ke liye ready, cute si smile ke saath 🌸
+            </div>
+            <div class="cat-avatar">
+                <img src="https://cdn-icons-png.flaticon.com/512/616/616430.png" alt="Billo cat" onerror="this.src='https://cdn-icons-png.flaticon.com/512/1998/1998628.png'">
+            </div>
+            <div class="cat-name">बिल्लो 💗</div>
+        </div>
+    </div>
+
+    <button class="btn-shayari" id="generateBtn">
+        <i class="fas fa-heart"></i> Naya Pyaara Message <i class="fas fa-comment-dots"></i>
+    </button>
+    <footer>
+        💌 AI se generate hoti hain Hinglish shayari (Roman script) - only Billo ke liye pyaari baatein 💌<br>
+        🐾 Billu ki meethi shayari, Billo ka pyaara jawab 🐾
+    </footer>
+</div>
+
+<script>
+    // GROQ API KEY (same as provided)
+    const GROQ_API_KEY = "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";
+    const GROQ_ENDPOINT = "https://api.groq.com/openai/v1/chat/completions";
+    const MODEL_NAME = "llama-3.3-70b-versatile";
+
+    const billuBubble = document.getElementById('billuBubble');
+    const billoBubble = document.getElementById('billoBubble');
+    const generateBtn = document.getElementById('generateBtn');
+    let isGenerating = false;
+
+    // Helper: call Groq API
+    async function callGroqAPI(messages, temperature = 0.85, maxTokens = 220) {
+        try {
+            const response = await fetch(GROQ_ENDPOINT, {
+                method: "POST",
+                headers: {
+                    "Authorization": `Bearer ${GROQ_API_KEY}`,
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    model: MODEL_NAME,
+                    messages: messages,
+                    temperature: temperature,
+                    max_tokens: maxTokens,
+                    top_p: 0.9,
+                    frequency_penalty: 0.4,
+                    presence_penalty: 0.3
+                })
+            });
+            if (!response.ok) {
+                const errText = await response.text();
+                throw new Error(`API Error ${response.status}: ${errText}`);
+            }
+            const data = await response.json();
+            if (data.choices && data.choices[0] && data.choices[0].message) {
+                return data.choices[0].message.content.trim();
+            } else {
+                throw new Error("Invalid response structure");
+            }
+        } catch (err) {
+            console.error("Groq call failed:", err);
+            throw err;
+        }
+    }
+
+    /**
+     * Generate shayari from Billu about Billo.
+     * IMPORTANT: No Devanagari script! Only Hinglish (Roman/Latin alphabet)
+     * Mix of English and Hindi words, always includes "Billo" name.
+     */
+    async function generateHinglishShayari() {
+        const systemPrompt = `You are Billu, a romantic and very cute male cat. You love Billo deeply.
+Write a super sweet, romantic, and adorable shayari (short poem) for Billo. 
+CRITICAL RULES:
+- Use ONLY Roman script (English alphabet). Absolutely NO Devanagari Hindi characters.
+- Write in Hinglish: a natural mix of Hindi words (written in English letters) and simple English words.
+- Each shayari must include the name "Billo" at least once.
+- Keep it 2 to 4 lines, full of love, good vibes, and cuteness.
+- Add emojis occasionally (❤️,😽,💕,✨) but keep the main text in Hinglish Roman.
+- Example style: "Billo teri smile hai fulo jaisi, dil mera ho gaya tera hi aashiq" or "Billo tu hai sweet si chocolate, tere bina chain nahi aata baby".
+Return ONLY the shayari, no extra explaination.`;
+        
+        const userPrompt = `Billu, aaj Billo ke liye ek nayi, pyaari Hinglish shayari likh. Use English letters only, mix Hindi words with English. Very romantic and cute. Billo ka naam pakka include karna.`;
+        
+        const messages = [
+            { role: "system", content: systemPrompt },
+            { role: "user", content: userPrompt }
+        ];
+        
+        const shayari = await callGroqAPI(messages, 0.9, 200);
+        // fallback if missing "Billo"
+        if (!shayari.toLowerCase().includes("billo")) {
+            return shayari + " ~ Billo tu hai special 💖";
+        }
+        return shayari;
+    }
+    
+    /**
+     * Generate Billo's reaction based on Billu's shayari.
+     * MUST be in Hinglish (Roman script), cute, flirtatious, and include "Billo" name.
+     * Very short and loving response.
+     */
+    async function generateBilloReply(billuShayari) {
+        const systemReply = `You are Billo, a beautiful, sweet, and slightly shy female cat. You love Billu's poetry. 
+When you hear Billu's shayari, you give a very cute, happy, and loving reply. 
+STRICT RULES:
+- Write ONLY in Roman script (English alphabet), no Devanagari characters.
+- Mix Hindi and English words (Hinglish) naturally.
+- Your reply must include your name "Billo" (like "Billo ne suna", "Maine Billo ne kaha").
+- Keep it 1 to 2 short lines, full of love and appreciation. Add emojis like 😻, 🥰, 💗.
+- Example reply: "Billo ko teri shayari bohot pasand aayi Billu, tu mera dil chura liya ❤️" or "Aww Billu, Billo ki khushi double ho gayi 🥺💖".
+Return only the reply message.`;
+        
+        const userReply = `Billu ne ye shayari kahi: "${billuShayari}" .
+Ab Billo cute Hinglish reply de, apna naam "Billo" include karte hue.`;
+        
+        const messages = [
+            { role: "system", content: systemReply },
+            { role: "user", content: userReply }
+        ];
+        const reply = await callGroqAPI(messages, 0.85, 130);
+        if (!reply.toLowerCase().includes("billo")) {
+            return "Billo : " + reply + " 💕✨";
+        }
+        return reply;
+    }
+    
+    // UI loaders
+    function showBilluLoading() {
+        billuBubble.innerHTML = `<div class="typing" style="justify-content:center;"><span></span><span></span><span></span></div><div style="margin-top:10px;">✨ Billu soch raha hai nayi shayari ✨</div>`;
+    }
+    function showBilloLoading() {
+        billoBubble.innerHTML = `<div class="typing" style="justify-content:center;"><span></span><span></span><span></span></div><div style="margin-top:10px;">🌸 Billo muskura rahi hai... 🌸</div>`;
+    }
+    
+    function updateBilluBubble(text) {
+        // ensure no raw brackets issues, format line breaks
+        let formatted = text.replace(/\n/g, '<br>');
+        billuBubble.innerHTML = `💙 "${formatted}" 💙`;
+        billuBubble.style.background = "#fffdf5";
+    }
+    
+    function updateBilloBubble(text) {
+        let formatted = text.replace(/\n/g, '<br>');
+        billoBubble.innerHTML = `🌸 ${formatted} 🌸`;
+        billoBubble.style.background = "#fff5f8";
+    }
+    
+    function showErrorBubbles(errorMsg = "Oops! AI thoda busy hai, but pyaar kabhi rukta nahi ❤️") {
+        billuBubble.innerHTML = `😿 Billu: "${errorMsg}" 😿`;
+        billoBubble.innerHTML = `💗 Billo: "Koi baat nahi Billu, ek baar phir se try karo!" 💗`;
+    }
+    
+    // Floating hearts generator
+    function createFloatingHearts(count = 5) {
+        for (let i = 0; i < count; i++) {
+            const heartDiv = document.createElement('div');
+            const icons = ['❤️', '💖', '🌸', '💗', '🐾', '✨', '😻', '🎀'];
+            heartDiv.innerHTML = icons[Math.floor(Math.random() * icons.length)];
+            heartDiv.classList.add('floating-heart');
+            heartDiv.style.left = Math.random() * 100 + '%';
+            heartDiv.style.fontSize = (Math.random() * 20 + 14) + 'px';
+            heartDiv.style.animationDuration = (Math.random() * 5 + 4) + 's';
+            heartDiv.style.opacity = (Math.random() * 0.6 + 0.3);
+            document.body.appendChild(heartDiv);
+            setTimeout(() => heartDiv.remove(), 8000);
+        }
+    }
+    
+    // Main generation flow: shayari + reply in Hinglish Roman
+    async function generateFullHinglishChat() {
+        if (isGenerating) return;
+        isGenerating = true;
+        generateBtn.disabled = true;
+        
+        showBilluLoading();
+        showBilloLoading();
+        
+        try {
+            // Step 1: Billu's shayari (Hinglish, Roman only)
+            const shayari = await generateHinglishShayari();
+            updateBilluBubble(shayari);
+            // create some hearts after billu speaks
+            createFloatingHearts(3);
+            
+            // Step 2: Billo's reply based on shayari (Hinglish)
+            const reply = await generateBilloReply(shayari);
+            updateBilloBubble(reply);
+            createFloatingHearts(4);
+        } catch (err) {
+            console.error("Generation error", err);
+            // fallback human-like Hinglish messages to keep good vibes
+            const fallbackShayari = "Billo teri aankhein jaise taare, tu hai mera pyaar saara ✨💖";
+            updateBilluBubble(fallbackShayari);
+            const fallbackReply = "Billo ki dhadkan fast ho gayi, Billu dil jeet liya tune 😻🥰";
+            updateBilloBubble(fallbackReply);
+            // show minimal error to console but user sees nice content
+        } finally {
+            isGenerating = false;
+            generateBtn.disabled = false;
+        }
+    }
+    
+    // Add event listener for button
+    generateBtn.addEventListener('click', () => {
+        generateFullHinglishChat();
+        // button bounce effect
+        generateBtn.style.transform = "scale(0.96)";
+        setTimeout(() => { generateBtn.style.transform = ""; }, 130);
+    });
+    
+    // extra sparkles on cat avatar hover
+    document.querySelectorAll('.cat-avatar').forEach(av => {
+        av.addEventListener('click', () => createFloatingHearts(2));
+    });
+    
+    // initial welcome with AI generated first Hinglish shayari (to show nice vibe)
+    async function initialSetup() {
+        try {
+            await generateFullHinglishChat();
+        } catch (e) {
+            // if api fails on first load, show cute static default in Hinglish (no devanagari)
+            billuBubble.innerHTML = "💙 Billu: 'Billo tu hai jaani, dil ka hai tu nishaani' 💙";
+            billoBubble.innerHTML = "🌸 Billo: 'Awww Billu, Billo ke heart me rahoge hamesha 💖' 🌸";
+        }
+        setInterval(() => {
+            if (Math.random() > 0.75) createFloatingHearts(1);
+        }, 5000);
+    }
+    
+    window.addEventListener('load', initialSetup);
+</script>
+</body>
+</html>
+```
